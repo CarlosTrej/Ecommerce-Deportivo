@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div id="carritoModal" class="carrito-modal">
+        <div class="carrito-content">
+            <span class="close" onclick="cerrarCarrito()">&times;</span>
+            <h2>Productos en el carrito:</h2>
+            <div id="productosCarrito">
+                <ul id="listaCarrito"></ul>
+                <p>Total: $<span id="totalCarrito">0.00</span></p>
+                <!-- Aquí se mostrarán los productos agregados -->
+            </div>
+            <button onclick="irAPago()">Pagar</button>
+        </div>
+    </div>
+    <header>
+        <img src="{% static 'images/Spicy.PNG' %}" alt="Logo"> 
+        <div class="user-actions">
+            
+            <button class="cart-button" onclick="mostrarCarrito()">Carrito</button>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 21a2 2 0 0 1-2 2 2 2 0 0 1-2-2h2zm7-16c0-1.105-.895-2-2-2H6c-1.105 0-2 .895-2 2l-2 14h18l-2-14z" />
+            </svg>
+        </div>
+        <div id="adminMessage">
+            {% if request.session.admin_logged_in %}
+            
+
+            {% else %}
+            <a href="{% url 'login' %}" id="loginLink">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+    </header>
+    <nav>
+        <div class="menu-container">
+            <a href="{% url 'lista_productos' %}" >Editar Productos</a>
+            <a href="#">Nosotros</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+            <a href="{% url 'ayuda' %}">Ayuda</a>
+        </div>
+    </nav>
+    
+    <div class="image-slider">
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        <img class="slides active" src="{% static 'images/uniformes-diablos-rojos.jpg' %}" alt="Imagen 1">
+        <img class="slides" src="{% static 'images/adidas-womens-world-cup-2023-away-kits.jpg' %}" alt="Imagen 2">
+        <img class="slides" src="{% static 'images/Logo_nike.jpg' %}" alt="Imagen 3">
+        <img class="slides" src="{% static 'images/tu-gif.gif' %}" alt="Gif">
+    </div>
+    <h2>Promociones:</h2>
+    <div class="promotions">
+        <div class="promotions-container">
+            {% for producto in productos %}
+            <div class="promotion-item">
+                <form id="form-producto-{{ producto.id }}" action="#" method="post">
+                    <img src="{{ producto.img }}" alt="{{ producto.nombre }}">
+                    <h3>{{ producto.nombre }}</h3>
+                    {% if producto.descuento %}
+                        <p><span style="text-decoration: line-through;">${{ producto.precio }}</span></p>
+                        <p>${{ producto.precio_con_descuento }}</p>
+                    {% else %}
+                        <p>${{ producto.precio }}</p>
+                    {% endif %}
+                    <button type="button" onclick="agregarAlCarrito('{{ producto.nombre }}', '{{ producto.precio }}')">Agregar al carrito</button>
+
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="new-arrivals">
+        <h2>Lo más nuevo:</h2>
+        <div class="new-arrivals-container">
+            {% for producto in productos|slice:"6" %}
+            <div class="new-item">
+                <form id="form-producto-{{ producto.id }}" action="#" method="post">
+                    <img src="{{ producto.img }}" alt="{{ producto.nombre }}">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>${{ producto.precio }}</p>
+                    <button type="button" onclick="agregarAlCarrito('{{ producto.nombre }}', '{{ producto.precio }}')">Agregar al carrito</button>
+
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="brands">
+        <h2>Marcas:</h2>
+        <div class="brands-container">
+            <div class="brand-item">
+                <img src="{% static 'images/adidas_logo.png' %}" alt="Marca 1">
+            </div>
+            <div class="brand-item">
+                <img src="{% static 'images/logo_nike.jpg' %}" alt="Marca 2">
+            </div>
+            <div class="brand-item">
+                <img src="{% static 'images/puma-logo.jpg' %}" alt="Marca 3">
+            </div>
+            <div class="brand-item">
+                <img src="{% static 'images/under_armour_logo.png' %}" alt="Marca 4">
+            </div>
+            <div class="brand-item">
+                <img src="{% static 'images/reebok_logo.png' %}" alt="Marca 5">
+            </div>
+        </div>
+    </div>
+    <div class="most-purchased">
+        <h2>Lo más comprado:</h2>
+        <div class="products-container" id="most-purchased-container">
+            {% for producto in productos|slice:"6:12" %}
+            <div class="product-item" id="most-purchased-product-{{ producto.id }}">
+                <a href="#">
+                    <img src="{{ producto.img }}" alt="{{ producto.nombre }}">
+                </a>
+                <h3>{{ producto.nombre }}</h3>
+                <p>${{ producto.precio }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="benefits">
+        <h2>Conoce los beneficios:</h2>
+        <div class="benefits-container">
+            <div class="benefit-item">
+                <img src="{% static 'images/paquete.png' %}" alt="Beneficio 1">
+                <h3>Envío gratis</h3>
+                <p>A toda la República Mexicana</p>
+            </div>
+            <div class="benefit-item">
+                <img src="{% static 'images/tarjeta.png' %}" alt="Beneficio 2">
+                <h3>Facilidades de Pago</h3>
+                <p>Hasta 12 MSI con tarjetas de crédito*</p>
+            </div>
+            <div class="benefit-item">
+                <img src="{% static 'images/devolucion.jpg' %}" alt="Beneficio 3">
+                <h3>Devoluciones sin costo</h3>
+                <p>Hazlo en línea o en tiendas físicas</p>
+            </div>
+            <div class="benefit-item">
+                <img src="{% static 'images/envio.png' %}" alt="Beneficio 4">
+                <h3>Velocidad de entrega</h3>
+                <p>Recibe tu pedido en tiempo récord</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#" class="vertical-link">Aviso de Privacidad</a>
+            <a href="#" class="vertical-link">Términos y Condiciones</a>
+        </div>
+        <p>&copy; 2024 Tienda deportiva. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/tiendadeportiva" target="_blank">
+                <img src="{% static 'images/facebook_logo.png' %}" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/tiendadeportiva" target="_blank">
+                <img src="{% static 'images/instagram_logo.png' %}" alt="Instagram">
+            </a>
+            <a href="https://twitter.com/tiendadeportiva" target="_blank">
+                <img src="{% static 'images/twitter_logo.png' %}" alt="Twitter">
+            </a>
+        </div>
+    </footer>
+        <script src="{% static 'js/index.js' %}"></script>
+    <script>
+        
+        window.onload = function() {
+            mostrarMensajeAdmin();
+        };
+    </script>
+
+</body>
+</html>
+

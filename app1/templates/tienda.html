@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Etiqueta viewport añadida -->
+    <title>Tienda</title>
+    <link rel="stylesheet" href="../static/css/tienda.css" /> <!-- Archivo CSS -->
+    <link rel="import" href="login.html">
+    <style>
+        /* Estilos internos (pueden ser eliminados si no se necesitan) */
+    </style>
+</head>
+
+<body style="background: linear-gradient(to bottom, #add8e6 50%, #ffffff 50%);">
+    <header>
+        <a href="index.html" class="logo">
+            <img src="../static/img/Spicy.PNG" alt="Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li>
+                    <a href="#" onclick="toggleDropdownMenu()">Productos</a>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <a href="#">Hombres</a>
+                        <a href="#">Mujeres</a>
+                        <a href="#">Niños</a>
+                    </div>
+                </li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <!-- Nuevo elemento de menú para ayuda -->
+                <li><a href="ayuda.html">Ayuda</a></li>
+            </ul>
+        </nav>
+
+        <div class="container-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="icon-cart" id="cart-icon">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+            <div class="count-products">
+                <span id="contador-productos">0</span>
+            </div>
+
+            <div class="container-cart-products hidden-cart" id="cart-content">
+                <div class="cart-product">
+                    <h3>Productos en el carrito:</h3>
+                    <ul class="product-list" id="product-list">
+                    </ul>
+                    <!-- Mostrar el total -->
+                    <p class="total-pagar" id="total-pagar">Total: $0</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="icon-close" id="close-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <a href="login.html" class="login-button">Iniciar sesión</a>
+
+    </header>
+    <div class="container-items">
+        <!-- Contenido de los productos -->
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tienda deportiva. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/tiendadeportiva" target="_blank">
+                <img src="../static/img/facebook_logo.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/tiendadeportiva" target="_blank">
+                <img src="../static/img/instagram_logo.png" alt="Instagram">
+            </a>
+            <a href="https://twitter.com/tiendadeportiva" target="_blank">
+                <img src="../static/img/twitter_logo.png" alt="Twitter">
+            </a>
+        </div>
+    </footer>
+
+    <script src="../static/js/tienda.js"></script> <!-- Archivo JS -->
+</body>
+
+</html>

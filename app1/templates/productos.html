@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+    <script>
+        function confirmDelete(productoId) {
+            if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+                window.location.href = `/eliminar-producto/${productoId}/`;
+            }
+        }
+    </script>
+    <style>
+        .btn {
+            padding: 5px 10px;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-update {
+            background-color: #4CAF50; /* Verde */
+        }
+        .btn-delete {
+            background-color: #f44336; /* Rojo */
+        }
+        .btn-create {
+            background-color: #4c53af; /* Verde */
+            color: aliceblue;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Productos</h1>
+        <a href="{% url 'subir_producto' %}" >
+            <h2 class="btn btn-create">Agregar Productos nuevos</h2>
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td><img src="{{ producto.img }}" alt="{{ producto.nombre }}"></td>
+                    <td>${{ producto.precio }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_producto' producto.id %}" class="btn btn-update">Actualizar</a>
+                        <button onclick="confirmDelete('{{ producto.id }}')" class="btn btn-delete">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

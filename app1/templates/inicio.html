@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="../static/css/inicio.css">
+</head>
+<body>
+    <header>
+        <img src="Spicy.PNG" alt="Logo"> 
+        <div class="user-actions">
+            <a href="#">Iniciar Sesión</a>
+            <div class="cart">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="cart-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 21a2 2 0 0 1-2 2 2 2 0 0 1-2-2h2zm7-16c0-1.105-.895-2-2-2H6c-1.105 0-2 .895-2 2l-2 14h18l-2-14z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="menu-container">
+            <a href="#">Inicio</a>
+            <a href="tienda.html">Productos</a>
+            <a href="#">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="ayuda.html">Ayuda</a>
+        </div>
+</nav>
+    
+    <div class="image-slider">
+        <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        <img class="slides active" src="uniformes-diablos-rojos.jpg" alt="Imagen 1">
+        <img class="slides" src="adidas-womens-world-cup-2023-away-kits-za.jpg" alt="Imagen 2">
+        <img class="slides" src="lebron-james.jpg" alt="Imagen 3">
+        <img class="slides" src="ruta/a/tu/gif.gif" alt="Gif">
+        <!-- Puedes agregar más imágenes si lo deseas -->
+    </div>
+
+    
+    <h2>Promociones:</h2>
+    <div class="promotions">
+        <button class="prev" onclick="plusPromotions(-1)">&#10094;</button>
+        <div class="promotions-container"> <!-- Añadido -->
+            <!-- Primer conjunto de productos -->
+            <div class="promotion-item">
+                <img src="sudadera.png" alt="Producto 1">
+                <h3>Sudadera Under Armour Entrenamiento Rival Fleece Wordmark Cye Crew Hombre</h3>
+                <p><span style="text-decoration: line-through;">$1,099.00</span></p>
+                <p>$594.58</p>
+            </div>
+            <div class="promotion-item">
+                <img src="pants adidas.png" alt="Producto 2">
+                <h3>Pants adidas Casual Tiro Mujer</h3>
+                <p><span style="text-decoration: line-through;">$1,299.00</span></p>
+                <p> $552.08</p>
+            </div>
+            <div class="promotion-item">
+                <img src="short puma.png" alt="Producto 3">
+                <h3>Short Puma Correr Favourtie Velocity Mujer</h3>
+                <p><span style="text-decoration: line-through;">$940.00</span></p>
+                <p>$360.82</p>
+            </div>
+            <!-- Segundo conjunto de productos (inicialmente oculto) -->
+            <div class="promotion-item" style="display: none;">
+                <img src="tenis adidas.png" alt="Producto 4">
+                <h3>Tenis adidas Entrenamiento Everyset Unisex</h3>
+                <p><span style="text-decoration: line-through;">$1,099.00</span></p>
+                <p>$968.49</p>
+            </div>
+            <div class="promotion-item" style="display: none;">
+                <img src="tenis nike pegasus.png" alt="Producto 5">
+                <h3>Tenis adidas Entrenamiento Everyset Unisex</h3>
+                <p><span style="text-decoration: line-through;">$3,999.00</span></p>
+                <p>$2,159.46</p>
+            </div>
+            <div class="promotion-item" style="display: none;">
+                <img src="chamarra nike correr.png" alt="Producto 6">
+                <h3>Tenis adidas Entrenamiento Everyset Unisex</h3>
+                <p><span style="text-decoration: line-through;">$1,899.00</span></p>
+                <p>$1,196.37</p>
+            </div>
+        </div>
+        <button class="next" onclick="plusPromotions(1)">&#10095;</button>
+    </div>
+
+   
+    <div class="new-arrivals">
+        <h2>Lo más nuevo:</h2>
+        <div class="new-arrivals-container">
+            <div class="new-item">
+                <img src="Tenis adidas Basquetbol.png" alt="Nuevo Producto 1">
+                <h3>Tenis adidas Basquetbol D.O.N. Issue 5 Unisex</h3>
+                <p>$3,299.00</p>
+            </div>
+            <div class="new-item">
+                <img src="Mochila adidas Casual.png" alt="Nuevo Producto 2">
+                <h3>Mochila adidas Casual 4CMTE 24 L Unisex</h3>
+                <p>$1,399.00</p>
+            </div>
+            <div class="new-item">
+                <img src="monitor polar multideporte.png" alt="Nuevo Producto 3">
+                <h3>Monitor Polar Multideporte Ignite 2</h3>
+                <p>$6,399.00</p>
+            </div>
+            <div class="new-item">
+                <img src="seleccion mexicana.png" alt="Nuevo Producto 4">
+                <h3>Jersey adidas Futbol Selección Mexicana Local</h3>
+                <p>$1,999.00</p>
+            </div>
+            <div class="new-item">
+                <img src="Gorra Nike Entrenamiento.png" alt="Nuevo Producto 5">
+                <h3>Gorra Nike Entrenamiento Dri-FIT Fly Unisex</h3>
+                <p>$649.00</p>
+            </div>
+            <div class="new-item">
+                <img src="Bolsa adidas Casual.png" alt="Nuevo Producto 6">
+                <h3>Bolsa adidas Casual x FARM Rio Prime Mujer</h3>
+                <p>$849.00</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="brands">
+        <h2>Marcas:</h2>
+        <div class="brands-container">
+            <div class="brand-item">
+                <img src="Adidas_Logo..png" alt="Marca 1">
+            </div>
+            <div class="brand-item">
+                <img src="Logo_nike.jpg" alt="Marca 2">
+            </div>
+            <div class="brand-item">
+                <img src="puma-logo.jpg" alt="Marca 3">
+            </div>
+            <div class="brand-item">
+                <img src="Under_armour_logo.png" alt="Marca 4">
+            </div>
+            <div class="brand-item">
+                <img src="reebok_logo.png" alt="Marca 5">
+            </div>
+        </div>
+    </div>
+
+    
+<div class="most-purchased">
+    <h2>Lo más comprado:</h2> 
+    <div class="products-container" id="most-purchased-container"> 
+        <div class="product-item" id="most-purchased-product-1"> 
+            <a href="cubrebocas.html"> 
+        <img src="Cubrebocas Under Armour.png" alt="Producto 1">
+    </a>
+            <h3>Cubrebocas Under Armour Entrenamiento Sportsmask</h3>
+            <p>$118.83</p>
+        </div>
+        <div class="product-item" id="most-purchased-product-2"> 
+            <img src="Jersey Nike Futbol Club América .png" alt="Producto 2">
+            <h3>Jersey Nike Futbol Club América Tercero Fan 23/24</h3>
+            <p>$1,899.00</p>
+        </div>
+        <div class="product-item" id="most-purchased-product-3"> 
+            <img src="Maleta Nike Entrenamiento Brasilia.png" alt="Producto 3">
+            <h3>Maleta Nike Entrenamiento Brasilia</h3>
+            <p>$559.20</p>
+        </div>
+        <div class="product-item" id="most-purchased-product-4"> 
+            <img src="Calcetín adidas Entrenamiento.png" alt="Producto 4">
+            <h3>Calcetín adidas Entrenamiento Low Cut 3 Pack Unisex</h3>
+            <p>$105.82</p>
+        </div>
+        <div class="product-item" id="most-purchased-product-5"> 
+            <img src="Cangurera Nike Casual Heritage.png" alt="Producto 5">
+            <h3>Cangurera Nike Casual Heritage 3 L Unisex</h3>
+            <p>$345.87</p>
+        </div>
+        <div class="product-item" id="most-purchased-product-6"> 
+            <img src="Balón adidas Futbol UEFA Champions.png" alt="Producto 6">
+            <h3>Balón adidas Futbol UEFA Champions League Club Unisex</h3>
+            <p>$503.28</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="benefits">
+    <h2>Conoce los beneficios:</h2>
+    <div class="benefits-container">
+        <div class="benefit-item">
+            <img src="paquete.png" alt="Beneficio 1">
+            <h3>Envío gratis</h3>
+            <p>A toda la República Mexicana</p>
+            <button class="ver-mas-btn" onclick="redirectToPage('condiciones de entrega.html')">Ver más</button> 
+        </div>
+        <div class="benefit-item">
+                <img src="tarjeta.png" alt="Beneficio 2">
+                <h3>Facilidades de Pago</h3>
+                <p>Hasta 12 MSI con tarjetas de crédito*</p>
+                <button class="ver-mas-btn" onclick="redirectToPage('facilidad de pago.html')">Ver más</button>
+            </div>
+        <div class="benefit-item">
+                <img src="devolucion.jpg" alt="Beneficio 3">
+                <h3>Devoluciones sin costo</h3>
+                <p>Hazlo en línea o en tiendas físicas</p>
+                <button class="ver-mas-btn" onclick="redirectToPage('cambio y devoluciones.html')">Ver más</button>
+            </div>
+        <div class="benefit-item">
+            <img src="envio.png" alt="Beneficio 4">
+            <h3>Velocidad de entrega</h3>
+            <p>Recibe tu pedido en tiempo récord</p>
+        </div>
+    </div>
+</div>
+
+    <footer>
+    <div class="footer-links">
+        <a href="aviso de privacidad.html" class="vertical-link">Aviso de Privacidad</a>
+        <a href="terminos.html" class="vertical-link"> <span style="text-decoration: underline;">Términos</span> y Condiciones</a>
+    </div>
+    <p>&copy; 2024 Tienda deportiva. Todos los derechos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/tiendadeportiva" target="_blank">
+            <img src="facebook_logo.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/tiendadeportiva" target="_blank">
+            <img src="instagram_logo.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com/tiendadeportiva" target="_blank">
+            <img src="twitter_logo.png" alt="Twitter">
+        </a>
+    </div>
+    
+    <div>
+    </div>
+</footer>
+   
+<script src="../static/js/inicio.js"></script>
+
+</body>
+</html>
